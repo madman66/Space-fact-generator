@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts About Space</title>
+    <style>
+        /* Style for the body element */
+        body {
+            font-family: Arial, sans-serif; /* Set the font family */
+            background-color: #1a1a1a; /* Set the background color */
+            color: #ffffff; /* Set the text color */
+            margin: 0; /* Remove default margin */
+            padding: 20px; /* Add padding around the body */
+        }
+
+        /* Container for the main content */
+        .container {
+            max-width: 600px; /* Set the maximum width of the container */
+            margin: auto; /* Center the container horizontally */
+            text-align: center; /* Center text within the container */
+        }
+
+        /* Style for the button */
+        button {
+            background-color: #007bff; /* Set the button background color */
+            color: white; /* Set the button text color */
+            border: none; /* Remove default border */
+            padding: 10px 20px; /* Add padding inside the button */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            font-size: 16px; /* Set the font size */
+        }
+
+        /* Style for button hover effect */
+        button:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+
+        /* Container for the facts */
+        .facts-container {
+            margin-top: 20px; /* Add margin above the facts container */
+            text-align: left; /* Align text to the left */
+        }
+
+        /* Style for each individual fact */
+        .fact {
+            background-color: #333; /* Set background color for facts */
+            border-radius: 5px; /* Round the corners of the fact box */
+            padding: 10px; /* Add padding inside the fact box */
+            margin: 10px 0; /* Add vertical margin between facts */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fun Facts About Space</h1>
+        <button id="show-fact">Show Next Fact</button>
+        <div id="facts-container" class="facts-container"></div>
+    </div>
+    <script>
+        const facts = [
+            {
+                fact: "Infinite Size",
+                description: "Space is so vast that it is believed to be infinite. The observable universe is about 93 billion light-years in diameter, but beyond that, we can't see or measure."
+            },
+            {
+                fact: "Black Holes",
+                description: "Black holes are regions in space where the gravitational pull is so strong that nothing, not even light, can escape from them. They are formed when massive stars collapse under their own gravity."
+            },
+            {
+                fact: "Neutron Stars",
+                description: "A neutron star is incredibly dense; just a sugar-cube-sized amount of material from one would weigh about as much as all of humanity combined!"
+            },
+            {
+                fact: "The Coldest Place",
+                description: "The coldest known place in the universe is the Boomerang Nebula, where temperatures can drop to -458 degrees Fahrenheit (-272 degrees Celsius), just a degree above absolute zero."
+            },
+            {
+                fact: "Galactic Cannibalism",
+                description: "Larger galaxies can 'consume' smaller ones. The Milky Way is currently absorbing the Sagittarius Dwarf Galaxy, and it has previously merged with others."
+            },
+            {
+                fact: "Time Dilation",
+                description: "According to Einstein's theory of relativity, time moves slower in stronger gravitational fields. This means that time passes slightly faster on the International Space Station than it does on Earth."
+            },
+            {
+                fact: "Floating Water",
+                description: "There is a massive cloud of water vapor in space, located around a black hole 12 billion light-years away, containing 140 trillion times the amount of water in Earth's oceans."
+            },
+            {
+                fact: "The Great Attractor",
+                description: "The Milky Way galaxy is moving towards a region of space known as the Great Attractor, which is a gravitational anomaly that is pulling our galaxy and others towards it."
+            },
+            {
+                fact: "Space is Silent",
+                description: "Unlike on Earth, where sound can travel through air, space is a vacuum, meaning there is no medium for sound waves to travel through. Therefore, space is completely silent."
+            },
+            {
+                fact: "The Sun's Size",
+                description: "The Sun accounts for about 99.86% of the total mass of the Solar System. It is so large that about 1.3 million Earths could fit inside it!"
+            }
+        ];
+
+        let currentIndex = 0; // Initialize the current index
+
+        document.getElementById('show-fact').addEventListener('click', function() {
+            const factsContainer = document.getElementById('facts-container');
+            if (currentIndex < facts.length) {
+                const fact = facts[currentIndex];
+                factsContainer.innerHTML = `<div class="fact"><strong>${fact.fact}</strong>: ${fact.description}</div>`;
+                currentIndex++; // Move to the next fact
+            } else {
+                factsContainer.innerHTML = '<div class="fact">No more facts available!</div>';
+            }
+        });
+    </script>
+</body>
+</html>
