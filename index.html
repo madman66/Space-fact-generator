@@ -102,17 +102,32 @@
         ];
 
         let currentIndex = 0; // Initialize the current index
+        let displayedFacts = []; // Array to keep track of displayed facts
 
         document.getElementById('show-fact').addEventListener('click', function() {
             const factsContainer = document.getElementById('facts-container');
             if (currentIndex < facts.length) {
                 const fact = facts[currentIndex];
                 factsContainer.innerHTML = `<div class="fact"><strong>${fact.fact}</strong>: ${fact.description}</div>`;
+                displayedFacts.push(fact); // Add the displayed fact to the array
                 currentIndex++; // Move to the next fact
             } else {
-                factsContainer.innerHTML = '<div class="fact">No more facts available!</div>';
+                // Shuffle the displayed facts and reset the current index
+                displayedFacts = shuffleArray(displayedFacts);
+                currentIndex = 0;
+                factsContainer.innerHTML = `<div class="fact"><strong>${displayedFacts[currentIndex].fact}</strong>: ${displayedFacts[currentIndex].description}</div>`;
+                currentIndex++; // Move to the next fact
             }
         });
+
+        // Function to shuffle an array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+            }
+            return array;
+        }
     </script>
 </body>
 </html>
